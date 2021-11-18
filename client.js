@@ -1,14 +1,15 @@
 const net = require("net");
+const {host,port,msg,username} = require('./constants');
 //declaring connect function
 const myfunc = () => {
   const conn = net.createConnection({
-    host: 'localhost',
-    port: 50541
+    host: host,
+    port: port
   });
   conn.setEncoding("utf8");
   conn.on('connect', () => {
-    console.log('successfully connected to the server');
-    conn.write("Name: JSW");
+    console.log(msg);
+    conn.write(username);
   })
   //get a msg from server when connected
   conn.on('data', (data) => {
