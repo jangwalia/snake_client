@@ -7,16 +7,16 @@ const myfunc = () => {
   });
   conn.setEncoding("utf8");
   //get a msg from server when connected
-  conn.on('connect',() => {
+  conn.on('connect', () => {
     console.log('successfully connected to the server');
     conn.write("Name: JSW");
   })
-  conn.on('data',(data)=>{
+  conn.on('data', (data) => {
     console.log("server says :", data);
   })
   // interpret incoming data as text
-  
+
   return conn;
 }
 //exporting connect function
-module.exports = {myfunc} 
+module.exports = { myfunc }
