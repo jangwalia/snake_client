@@ -17,14 +17,14 @@ const setupInput = function (conn) {
   stdin.resume();
   return stdin;
 };
-
+//sending message function
 const chat = function(key){
   if(key === 'z'){
     connection.write("Say: hello");
   }
   
 }
-
+//WASD movement function
 const snakeMovement = function (key) {
 
   if (key === "w") {
