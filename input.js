@@ -1,6 +1,6 @@
 let connection;
 const handleUserInput = function (key) {
-  if(key === '\u0003'){
+  if (key === '\u0003') {
     process.exit();
   }
 }
@@ -8,17 +8,17 @@ const handleUserInput = function (key) {
 const setupInput = function (conn) {
   connection = conn;
   const stdin = process.stdin;
-    //creating event handler for stdin
-  stdin.on("data",handleUserInput);
-  stdin.on("data",snakeMovement);
+  //creating event handler for stdin
+  stdin.on("data", handleUserInput);
+  stdin.on("data", snakeMovement);
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
   return stdin;
 };
 
-const snakeMovement = function(key){
-  
+const snakeMovement = function (key) {
+
   if (key === "w") {
     connection.write("Move: up");
   } else if (key === "s") {
@@ -29,4 +29,4 @@ const snakeMovement = function(key){
     connection.write("Move: right");
   }
 };
-module.exports = {setupInput}
+module.exports = { setupInput }
