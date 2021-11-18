@@ -4,4 +4,5 @@ const { setupInput } = require('./input');
 //calling the function using destructuring 
 console.log('connecting....')
 let conn = myfunc();
+//passing conn object to setInput function to use in input file
 setupInput(conn);

@@ -6,11 +6,11 @@ const myfunc = () => {
     port: 50541
   });
   conn.setEncoding("utf8");
-  //get a msg from server when connected
   conn.on('connect', () => {
     console.log('successfully connected to the server');
     conn.write("Name: JSW");
   })
+  //get a msg from server when connected
   conn.on('data', (data) => {
     console.log("server says :", data);
   })
