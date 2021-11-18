@@ -11,7 +11,13 @@ const myfunc = () => {
     console.log('successfully connected to the server');
     conn.write("Name: JSW");
   })
-  
+  //TRYING HARD CODED MOVE COMMANDS
+  // conn.on('connect',()=>{
+  //   setInterval(()=>{
+  //     conn.write('Move: up');
+  //     conn.write('Move: right')
+  //   },50)
+  // });
   conn.on('data',(data)=>{
     console.log("server says :", data);
   })
