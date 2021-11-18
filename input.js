@@ -11,11 +11,19 @@ const setupInput = function (conn) {
   //creating event handler for stdin
   stdin.on("data", handleUserInput);
   stdin.on("data", snakeMovement);
+  stdin.on("data",chat);
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
   return stdin;
 };
+
+const chat = function(key){
+  if(key === 'z'){
+    connection.write("Say: hello");
+  }
+  
+}
 
 const snakeMovement = function (key) {
 
