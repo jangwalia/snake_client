@@ -1,5 +1,5 @@
-const {connect} = require('./client');
+const {myfunc} = require('./client');
 // establishes a connection with the game server
 //calling the function using destructuring 
-connect();
-console.log("Connecting ...");
+myfunc();
+

@@ -1,17 +1,23 @@
 const net = require("net");
 //declaring connect function
-const connect = () => {
+const myfunc = () => {
   const conn = net.createConnection({
     host: 'localhost',
     port: 50541
   });
+  conn.setEncoding("utf8");
   //get a msg from server when connected
+  conn.on('connect',() => {
+    console.log('successfully connected to the server');
+    conn.write("Name: JSW");
+  })
+  
   conn.on('data',(data)=>{
-    console.log(data);
+    console.log("server says :", data);
   })
   // interpret incoming data as text
-  conn.setEncoding("utf8");
+  
   return conn;
 }
 //exporting connect function
-module.exports = {connect}
+module.exports = {myfunc}
