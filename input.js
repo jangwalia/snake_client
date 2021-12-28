@@ -1,23 +1,26 @@
 let connection;
-//using destructuring for constant values;
-const{keyData} = require('./constants');
-const handleUserInput = function (key) {
-  if (key === '\u0003') {
-    process.exit();
-    //mapping over the object
-  }connection.write(keyData[key]);
-};
-//DEFINING USER INPUT BY CREATING A FUNCTION
+const { connect } = require("./client");
+const {movement} = require('./constants');
 const setupInput = function (conn) {
   connection = conn;
   const stdin = process.stdin;
-  //creating event handler for stdin
-  stdin.on("data", handleUserInput);
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
+  stdin.on("data", handleUserInput);
+
   return stdin;
 };
 
+const handleUserInput = function (key) {
+  if (key === '\u0003') {
+    process.exit();
+  }
+  for(const move in movement){
+    if(key === move){
+      connection.write(movement[move]);
+    }
+  }
+};
 
-module.exports = { setupInput }
+module.exports = {setupInput};

@@ -1,19 +1,11 @@
 const host = "localhost";
 const port = 50541;
-const msg = "Successfuly Connected";
-const username = "Name: JSW";
-//sending directions as an object
-const keyData = {
+const myname = "JBS";
+const msg = "Hiss";
+const movement = {
   w : "Move: up",
   a : "Move: left",
   s : "Move: down",
-  d : "Move: right",
-  z : "Say: Hello"
+  d : "Move: right"
 }
-module.exports = {
-  host,
-  port,
-  msg,
-  username,
-  keyData
-}
+module.exports = {host,port,myname,msg,movement};

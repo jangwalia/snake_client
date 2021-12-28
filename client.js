@@ -1,23 +1,28 @@
 const net = require("net");
-const {host,port,msg,username} = require('./constants');
-//declaring connect function
-const myfunc = () => {
+const {host,port,myname,msg} = require('./constants');
+const connect = function () {
   const conn = net.createConnection({
-    host: host,
-    port: port
+    host,
+    port
   });
+// interpret incoming data as text
   conn.setEncoding("utf8");
-  conn.on('connect', () => {
-    console.log(msg);
-    conn.write(username);
+  conn.on('connect',()=>{
+    console.log('connected to game server');
+    
   })
-  //get a msg from server when connected
-  conn.on('data', (data) => {
-    console.log("server says :", data);
+  conn.on('connect',()=>{
+    conn.write(`Name: ${myname}`,()=>{
+      conn.write(`Say: ${msg}`);
+    });
+    
+    });
+  
+ 
+  
+  conn.on('data',(data)=>{
+    console.log("Snake says: " , data);
   })
-  // interpret incoming data as text
-
   return conn;
-}
-//exporting connect function
-module.exports = { myfunc }
+};
+module.exports = {connect};

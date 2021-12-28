@@ -1,8 +1,7 @@
-const { myfunc } = require('./client');
-const { setupInput } = require('./input');
+const {connect} = require('./client');
+const {setupInput } = require('./input');
+
 // establishes a connection with the game server
-//calling the function using destructuring 
-console.log('connecting....')
-let conn = myfunc();
-//passing conn object to setInput function to use in input file
+console.log("Connecting ...");
+const conn = connect();
 setupInput(conn);
